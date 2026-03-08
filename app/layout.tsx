@@ -15,53 +15,48 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Konecticus | Join the Waitlist",
+  title: "TwinBridge Travels | Expert Immigration Services",
   description:
-    "Where Creative Ideas Find Their Team. Connect with writers, artists, developers, and designers to bring your ideas to life — no funding, no barriers, just collaboration.",
+    "TwinBridge Travels provides transparent, honest, and high-quality immigration services. We specialize in Canada Permanent Residency (PR), Visiting Visas, and turning your dreams into reality.",
   keywords: [
-    "collaboration",
-    "creative",
-    "team",
-    "writers",
-    "artists",
-    "developers",
-    "designers",
-    "startup",
-    "ideas",
-    "konecticus",
-    "waitlist",
+    "TwinBridge",
+    "TwinBridge Travels",
+    "Immigration",
+    "Canada PR",
+    "Permanent Residency",
+    "Visiting Visa",
+    "Travel Agency",
+    "Immigration Consultant",
+    "Visa Application",
   ],
-  authors: [{ name: "Konecticus" }],
+  authors: [{ name: "TwinBridge Travels" }],
   openGraph: {
     type: "website",
-    url: "https://www.koneticus.com/",
-    title: "Konecticus | Join the Waitlist",
+    url: "https://www.twinbridgetravels.com/",
+    title: "TwinBridge Travels | Expert Immigration Services",
     description:
-      "Where Creative Ideas Find Their Team. Connect with writers, artists, developers, and designers to bring your ideas to life.",
-    siteName: "Konecticus",
+      "Your trusted partner for transparent and high-quality immigration services. Distance should never be a barrier to opportunity.",
+    siteName: "TwinBridge Travels",
     images: [
       {
-        url: "https://www.koneticus.com/images/symbol-logo.png",
-        width: 512,
-        height: 512,
-        alt: "Konecticus logo - Where Creative Ideas Find Their Team",
+        url: "https://www.twinbridgetravels.com/images/logo.svg",
+        width: 1200,
+        height: 630,
+        alt: "TwinBridge Travels logo - Expert Immigration Services",
       },
     ],
   },
   twitter: {
-    card: "summary",
-    title: "Konecticus | Join the Waitlist",
+    card: "summary_large_image",
+    title: "TwinBridge Travels | Expert Immigration Services",
     description:
-      "Where Creative Ideas Find Their Team. Connect with writers, artists, developers, and designers to bring your ideas to life.",
-    images: ["https://www.koneticus.com/images/symbol-logo.png"],
+      "Your trusted partner for transparent and high-quality immigration services. Distance should never be a barrier to opportunity.",
+    images: ["https://www.twinbridgetravels.com/images/logo.svg"],
   },
   icons: {
-    icon: [
-      { url: "/images/purple_logo.png", sizes: "any", type: "image/png" },
-      { url: "/images/purple_logo.svg", type: "image/svg+xml" },
-    ],
-    shortcut: "/images/symbol-logo.png",
-    apple: "/images/symbol-logo.png",
+    icon: [{ url: "/images/logo.svg", sizes: "any", type: "image/svg+xml" }],
+    shortcut: "/images/logo.svg",
+    apple: "/images/logo.svg",
   },
 };
 
