@@ -11,6 +11,8 @@ const buttonVariants = cva(
       variant: {
         default: "bg-[#293e6d] text-white rounded-[6.25rem]",
         white: "bg-white text-[#293e6d] rounded-[6.25rem]",
+        outline:
+          "border border-input bg-background shadow-sm hover:bg-accent hover:text-accent-foreground",
       },
       size: {
         default: "h-[2.8125rem] px-4 py-2 has-[>svg]:px-3",
