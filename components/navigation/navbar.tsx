@@ -121,7 +121,6 @@ const Navbar = () => {
             <Button>Book a Consultation</Button>
           </div>
 
-          {/* Mobile Navigation Toggle */}
           <div
             className="flex md:hidden items-center justify-center cursor-pointer relative w-9 h-9"
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -140,7 +139,6 @@ const Navbar = () => {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
       <div
         className={`fixed inset-0 top-[5rem] bg-white z-40 flex flex-col items-center pt-[2rem] px-[1.25rem] gap-[1.5rem] md:hidden h-[calc(100vh-5rem)] overflow-y-auto transition-all duration-300 ease-in-out ${
           isMobileMenuOpen
