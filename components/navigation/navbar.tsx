@@ -5,7 +5,7 @@ import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import { Button } from "../ui/button";
 import { Menu, X } from "lucide-react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 type link = {
   label: string;
@@ -14,6 +14,8 @@ type link = {
 
 const Navbar = () => {
   const router = useRouter();
+  const pathname = usePathname();
+  console.log(pathname);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isMobileServicesOpen, setIsMobileServicesOpen] = useState(false);
 
@@ -27,12 +29,37 @@ const Navbar = () => {
     },
     {
       label: "About",
-      onClick: () => router.push("/about"),
+      onClick: () => {
+        if (pathname === "/") {
+          document
+            .getElementById("about")
+            ?.scrollIntoView({ behavior: "smooth" });
+        } else {
+          router.push("/");
+          setTimeout(() => {
+            document
+              .getElementById("about")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }, 500);
+        }
+      },
     },
     {
       label: "FAQ",
-      onClick: () =>
-        document.getElementById("faq")?.scrollIntoView({ behavior: "smooth" }),
+      onClick: () => {
+        if (pathname === "/") {
+          document
+            .getElementById("faq")
+            ?.scrollIntoView({ behavior: "smooth" });
+        } else {
+          router.push("/");
+          setTimeout(() => {
+            document
+              .getElementById("faq")
+              ?.scrollIntoView({ behavior: "smooth" });
+          }, 500);
+        }
+      },
     },
     {
       label: "Contact",

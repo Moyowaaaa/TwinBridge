@@ -1,23 +1,80 @@
+"use client";
+
+import React, { useEffect, useRef } from "react";
 import Image from "next/image";
 import { ChevronRight } from "lucide-react";
 import Link from "next/link";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(ScrollTrigger);
 
 const ServicesSection = () => {
-  return (
-    <section className="w-full flex justify-center bg-white py-[4rem] md:py-[6.25rem]">
-      <div className="w-full max-w-[65rem] px-[1.25rem] lg:px-0 flex flex-col items-center">
-        <span className="text-[#5c7285] text-[0.75rem] font-semibold tracking-wider uppercase mb-[1rem]">
-          Our Services
-        </span>
-        <h2 className="text-[2.25rem] md:text-[3rem] font-bold text-[#111111] leading-[1.2] mb-[1rem] text-center">
-          Services Tailored For You
-        </h2>
-        <p className="text-[#7c7c7c] text-[1rem] md:text-[1.125rem] max-w-[36rem] text-center mb-[4rem] leading-[1.6]">
-          From permanent residency to visitors visas, we cover every aspect of
-          your Canadian journey.
-        </p>
+  const sectionRef = useRef<HTMLElement>(null);
+  const headerRef = useRef<HTMLDivElement>(null);
+  const cardsRef = useRef<HTMLDivElement>(null);
 
-        <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-[2rem] md:gap-[3rem]">
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      // Header animation
+      if (headerRef.current) {
+        gsap.fromTo(
+          headerRef.current.children,
+          { y: 30, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: headerRef.current,
+              start: "top 85%",
+            },
+          }
+        );
+      }
+
+      // Cards stagger animation
+      if (cardsRef.current) {
+        gsap.fromTo(
+          cardsRef.current.children,
+          { y: 50, opacity: 0 },
+          {
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            stagger: 0.2,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: cardsRef.current,
+              start: "top 80%",
+            },
+          }
+        );
+      }
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
+  return (
+    <section ref={sectionRef} className="w-full flex justify-center bg-white py-[4rem] md:py-[6.25rem]">
+      <div className="w-full max-w-[65rem] px-[1.25rem] lg:px-0 flex flex-col items-center">
+        <div ref={headerRef} className="flex flex-col items-center w-full">
+          <span className="text-[#5c7285] text-[0.75rem] font-semibold tracking-wider uppercase mb-[1rem]">
+            Our Services
+          </span>
+          <h2 className="text-[2.25rem] md:text-[3rem] font-bold text-[#111111] leading-[1.2] mb-[1rem] text-center">
+            Services Tailored For You
+          </h2>
+          <p className="text-[#7c7c7c] text-[1rem] md:text-[1.125rem] max-w-[36rem] text-center mb-[4rem] leading-[1.6]">
+            From permanent residency to visitors visas, we cover every aspect of
+            your Canadian journey.
+          </p>
+        </div>
+
+        <div ref={cardsRef} className="w-full grid grid-cols-1 md:grid-cols-2 gap-[2rem] md:gap-[3rem]">
           {/* Card 1 */}
           <div className="flex flex-col group cursor-pointer w-full">
             <div className="w-full relative rounded-[1rem] overflow-hidden aspect-[4/3] mb-[1.5rem]">
@@ -25,7 +82,7 @@ const ServicesSection = () => {
                 src="/images/permanent_residency_hero.png"
                 alt="Canada Permanent Residency (PR)"
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
             <div className="flex flex-col gap-[0.75rem]">
@@ -53,7 +110,7 @@ const ServicesSection = () => {
                 src="/images/visiting_visa_hero.png"
                 alt="Canada Visiting Visa"
                 fill
-                className="object-cover transition-transform duration-500 group-hover:scale-105"
+                className="object-cover transition-transform duration-700 group-hover:scale-105"
               />
             </div>
             <div className="flex flex-col gap-[0.75rem]">
